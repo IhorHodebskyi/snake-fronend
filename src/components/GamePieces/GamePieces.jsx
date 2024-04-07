@@ -175,15 +175,7 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 				clearInterval(intervale);
 			};
 		}
-	}, [
-		apple,
-		direction,
-		onGameOver,
-		pause,
-		score,
-		setScore,
-		snake,
-	]);
+	}, [direction, snake]);
 
 	return (
 		<div>

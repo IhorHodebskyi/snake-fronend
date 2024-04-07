@@ -1,15 +1,15 @@
 import GameState from "components/GameState/GameState";
 import { Wrapper } from "./Game.stayled";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchGame } from "redux/game/operations";
+// import { useEffect } from "react";
+// import { useDispatch } from "react-redux";
+// import { fetchResults } from "redux/game/operations";
 
 const Game = () => {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(fetchGame());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(fetchResults());
+	// }, [dispatch]);
 
 	return (
 		<Wrapper>

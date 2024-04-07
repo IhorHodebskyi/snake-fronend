@@ -1,8 +1,11 @@
-export const handleFulfilledGame = (state, { payload }) => {
+export const handleFulfilledResults = (
+	state,
+	{ payload },
+) => {
 	state.items = payload;
 };
 
-export const handleFulfilledUpdateGame = (
+export const handleFulfilledUpdateResult = (
 	state,
 	{ payload },
 ) => {

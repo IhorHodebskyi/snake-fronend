@@ -2,20 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
 import {
 	handleFulfilled,
-	handleFulfilledUpdateGame,
-	handleFulfilledGame,
+	handleFulfilledResults,
+	handleFulfilledUpdateResult,
 	handlePending,
 	handleRejected,
 } from "./handlers";
-import { addGame, fetchGame } from "./operations";
+import { updateResult, fetchResults } from "./operations";
 
 const gameSlice = createSlice({
 	name: "game",
 	initialState,
 	extraReducers: builder =>
 		builder
-			.addCase(fetchGame.fulfilled, handleFulfilledGame)
-			.addCase(addGame.fulfilled, handleFulfilledUpdateGame)
+			.addCase(
+				fetchResults.fulfilled,
+				handleFulfilledResults,
+			)
+			.addCase(
+				updateResult.fulfilled,
+				handleFulfilledUpdateResult,
+			)
 			.addMatcher(
 				action => action.type.endsWith("/fulfilled"),
 				handleFulfilled,
