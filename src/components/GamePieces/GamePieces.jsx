@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { GameCanvas } from "./GamePieces.styled";
 
 const GamePieces = ({ score, setScore, onGameOver }) => {
 	const [pause, setPause] = useState(false);
@@ -187,8 +188,7 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 	return (
 		<div>
 			{pause && <p>pause</p>}
-			<canvas
-				className="gameCanvas"
+			<GameCanvas
 				ref={canvasRef}
 				width={750}
 				height={420}
