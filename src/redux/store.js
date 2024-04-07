@@ -13,6 +13,7 @@ import {
 	PURGE,
 	REGISTER,
 } from "redux-persist";
+import { gameReducer } from "./game/gameSlice";
 
 const authPersistConfig = {
 	key: "auth",
@@ -22,6 +23,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
 	reducer: {
+		game: gameReducer,
 		auth: persistReducer(authPersistConfig, authReducer),
 	},
 	middleware(getDefaultMiddleware) {

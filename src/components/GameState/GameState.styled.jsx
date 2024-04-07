@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const GameContainer = styled.div`
-	background-color: #ecf0f1;
-	border: 1px solid #bdc3d9;
+	display: flex
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 `;
 export const Score = styled.p`
 	color: #1e88e5;

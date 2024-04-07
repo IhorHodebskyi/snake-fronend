@@ -43,21 +43,22 @@ const GameState = () => {
 
 	return (
 		<>
-			<Score>Score: {score}</Score>
-			{/* <p className="high-score">High Score: {highScore}</p> */}
-			{gameOver && (
-				<GameOver>
-					<p>
-						Game Over!{" "}
-						{collisionType === "wall"
-							? "You Hit the wall"
-							: "You Ate yourself"}
-						!
-					</p>
-					<p>Press Enter to reset the game.</p>
-				</GameOver>
-			)}
 			<GameContainer>
+				<Score>Score: {score}</Score>
+				{/* <p className="high-score">High Score: {highScore}</p> */}
+				{gameOver && (
+					<GameOver>
+						<p>
+							Game Over!{" "}
+							{collisionType === "wall"
+								? "You Hit the wall"
+								: "You Ate yourself"}
+							!
+						</p>
+						<p>Press Enter to reset the game.</p>
+					</GameOver>
+				)}
+
 				{!gameOver && (
 					<GamePieces
 						score={score}
