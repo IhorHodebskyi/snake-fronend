@@ -39,7 +39,7 @@ export const RegisterForm = () => {
 			>
 				<Forma autoComplete="off">
 					<Label>
-						Username
+						User name
 						<Input
 							type="text"
 							name="name"

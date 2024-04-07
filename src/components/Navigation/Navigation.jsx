@@ -9,7 +9,7 @@ export const Navigation = () => {
 			<NavList>
 				<li>
 					{isLoggedIn ? (
-						<Link to="/contacts">Game</Link>
+						<Link to="/game">Game</Link>
 					) : (
 						<Link to="/">Home</Link>
 					)}
