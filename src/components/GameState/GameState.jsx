@@ -1,5 +1,6 @@
 import GamePieces from "components/GamePieces/GamePieces";
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
 	GameContainer,
 	GameOver,
@@ -7,20 +8,24 @@ import {
 	Score,
 } from "./GameState.styled";
 
+import { updateResult } from "redux/game/operations";
+import { selectUser } from "redux/auth/selectors";
+import { selectGame } from "redux/game/selectors";
+
 const GameState = () => {
+	const dispatch = useDispatch();
 	const [score, setScore] = useState(0);
-	const [highScore, setHighScore] = useState(
-		parseInt(localStorage.getItem("highScore")) || 0,
-	);
+
 	const [gameOver, setGameOver] = useState(false);
 	const [collisionType, setCollisionType] = useState(null);
+	const { highScore } = useSelector(selectUser);
+	const items = useSelector(selectGame);
 
 	const handleGameOver = type => {
 		setGameOver(true);
 
 		if (score > highScore) {
-			setHighScore(score);
-			localStorage.setItem("highScore", score.toString());
+			dispatch(updateResult(score));
 		}
 
 		setCollisionType(type);
@@ -54,7 +59,16 @@ const GameState = () => {
 							: "You Ate yourself"}
 						!
 					</p>
-					<p>Press Enter to reset the game.</p>
+					<p>Press Enter to reset the game</p>
+					<p>Records</p>
+					<ul>
+						{items.map(({ id, name, highScore }) => (
+							<li key={id}>
+								{" "}
+								{name}:{highScore}
+							</li>
+						))}
+					</ul>
 				</GameOver>
 			)}
 			{!gameOver && (
