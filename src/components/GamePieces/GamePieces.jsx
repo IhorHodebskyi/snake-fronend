@@ -121,7 +121,7 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 					snakeHead.x === apple.x &&
 					snakeHead.y === apple.y
 				) {
-					setScore(score++);
+					setScore(++score);
 
 					setApple({
 						x:
@@ -176,8 +176,7 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 			};
 		}
 	}, [
-		apple.x,
-		apple.y,
+		apple,
 		direction,
 		onGameOver,
 		pause,

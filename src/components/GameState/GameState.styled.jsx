@@ -7,10 +7,15 @@ export const GameContainer = styled.div`
     align-items: center;
     text-align: center;
 `;
-export const P = styled.p`
+export const Score = styled.p`
 	color: #1e88e5;
 	font-size: 24px;
 `;
+export const HighScore = styled.p`
+	color: #e74c3c;
+	font-size: 18px;
+`;
+
 export const GameOver = styled.div`
 	display: flex;
 	flex-direction: column;

@@ -1,5 +1,11 @@
 import GamePieces from "components/GamePieces/GamePieces";
 import React, { useState, useEffect } from "react";
+import {
+	GameContainer,
+	GameOver,
+	HighScore,
+	Score,
+} from "./GameState.styled";
 
 const GameState = () => {
 	const [score, setScore] = useState(0);
@@ -36,11 +42,11 @@ const GameState = () => {
 	}, [gameOver]);
 
 	return (
-		<div className="game-container">
-			<p className="score">Score: {score}</p>
-			<p className="high-score">High Score: {highScore}</p>
+		<GameContainer>
+			<Score className="score">Score: {score}</Score>
+			<HighScore>High Score: {highScore}</HighScore>
 			{gameOver && (
-				<div className="game-over">
+				<GameOver>
 					<p>
 						Game Over!{" "}
 						{collisionType === "wall"
@@ -49,7 +55,7 @@ const GameState = () => {
 						!
 					</p>
 					<p>Press Enter to reset the game.</p>
-				</div>
+				</GameOver>
 			)}
 			{!gameOver && (
 				<GamePieces
@@ -58,7 +64,7 @@ const GameState = () => {
 					onGameOver={type => handleGameOver(type)}
 				/>
 			)}
-		</div>
+		</GameContainer>
 	);
 };
 
