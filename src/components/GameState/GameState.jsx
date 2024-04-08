@@ -23,7 +23,7 @@ const GameState = () => {
 
 	const handleGameOver = type => {
 		setGameOver(true);
-		dispatch(updateResult(score));
+
 		if (score > highScore) {
 			dispatch(updateResult(score));
 		}
