@@ -10,11 +10,10 @@ export const handleFulfilledUpdateResult = (
 	{ payload },
 ) => {
 	state.items = state.items.map(item => {
-		if (item._id === payload._id) {
+		if (item.id === payload.id) {
 			return {
 				...item,
-				name: payload.name,
-				score: payload.score,
+				highScore: payload.highScore,
 			};
 		}
 		return item;

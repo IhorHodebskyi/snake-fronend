@@ -17,7 +17,6 @@ export const fetchResults = createAsyncThunk(
 export const updateResult = createAsyncThunk(
 	"game/addGame",
 	async (score, thunkAPI) => {
-		console.log(score);
 		try {
 			const { data } = await axios.put("/score/update", {
 				score,
