@@ -13,7 +13,7 @@ export const handleFulfilledUpdateResult = (
 		if (item.id === payload.id) {
 			return {
 				...item,
-				highScore: payload.highScore,
+				high_score: payload.high_score,
 			};
 		}
 		return item;

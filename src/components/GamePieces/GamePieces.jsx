@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { GameCanvas } from "./GamePieces.styled";
+import {
+	GameCanvas,
+	Text,
+	Wrapper,
+} from "./GamePieces.styled";
 
 const GamePieces = ({ score, setScore, onGameOver }) => {
 	const [pause, setPause] = useState(false);
@@ -11,7 +15,14 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 		{ x: 95, y: 50 },
 	]);
 	const [direction, setDirection] = useState(null);
+	const [speed, setSpeed] = useState(100);
+	const [count, setCount] = useState(10);
 
+	if (count === score) {
+		let i = speed - 10;
+		setCount(+10);
+		setSpeed(i);
+	}
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const ctx = canvas.getContext("2d");
@@ -169,7 +180,7 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 				drawSnake();
 				draftApple();
 				moveSnake();
-			}, 100);
+			}, speed);
 
 			return () => {
 				clearInterval(intervale);
@@ -183,17 +194,18 @@ const GamePieces = ({ score, setScore, onGameOver }) => {
 		score,
 		setScore,
 		snake,
+		speed,
 	]);
 
 	return (
-		<div>
-			{pause && <p>pause</p>}
+		<Wrapper>
+			{pause && <Text>pause</Text>}
 			<GameCanvas
 				ref={canvasRef}
 				width={750}
 				height={420}
 			/>
-		</div>
+		</Wrapper>
 	);
 };
 

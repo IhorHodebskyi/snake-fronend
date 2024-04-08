@@ -15,17 +15,18 @@ import { selectGame } from "redux/game/selectors";
 const GameState = () => {
 	const dispatch = useDispatch();
 	const [score, setScore] = useState(0);
-
 	const [gameOver, setGameOver] = useState(false);
 	const [collisionType, setCollisionType] = useState(null);
-	const { highScore } = useSelector(selectUser);
+	const { high_score } = useSelector(selectUser);
+	const [count, setCount] = useState(high_score);
 	const items = useSelector(selectGame);
 
 	const handleGameOver = type => {
 		setGameOver(true);
 
-		if (score > highScore) {
+		if (score > count) {
 			dispatch(updateResult(score));
+			setCount(score);
 		}
 
 		setCollisionType(type);
@@ -49,7 +50,7 @@ const GameState = () => {
 	return (
 		<GameContainer>
 			<Score className="score">Score: {score}</Score>
-			<HighScore>High Score: {highScore}</HighScore>
+			<HighScore>High Score: {count}</HighScore>
 			{gameOver && (
 				<GameOver>
 					<p>
@@ -62,10 +63,10 @@ const GameState = () => {
 					<p>Press Enter to reset the game</p>
 					<p>Records</p>
 					<ul>
-						{items.map(({ id, name, highScore }) => (
+						{items.map(({ id, name, high_score }) => (
 							<li key={id}>
 								{" "}
-								{name}:{highScore}
+								{name}:{high_score}
 							</li>
 						))}
 					</ul>

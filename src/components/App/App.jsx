@@ -42,7 +42,7 @@ export const App = () => {
 					path="/login"
 					element={
 						<RestrictedRoute
-							redirectTo="/login"
+							redirectTo="/game"
 							component={<Login />}
 						/>
 					}
@@ -52,7 +52,7 @@ export const App = () => {
 					path="/game"
 					element={
 						<PrivateRoute
-							redirectTo="/game"
+							redirectTo="/login"
 							component={<Game />}
 						/>
 					}

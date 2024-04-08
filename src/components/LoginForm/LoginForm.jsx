@@ -8,6 +8,8 @@ import {
 	Input,
 	Button,
 	Forma,
+	WrapperPassword,
+	WrapperEmail,
 } from "./LoginForm.styled";
 
 const initialValues = {
@@ -35,34 +37,75 @@ export const LoginForm = () => {
 				onSubmit={handleSubmit}
 				validationSchema={schema}
 			>
-				{() => (
-					<Forma autoComplete="off">
-						<Label>
-							Email
-							<Input
-								type="email"
-								name="email"
-								title="Email may contain letters, numbers, an apostrophe, and must be followed by '@' domain name '.' domain suffix. For example Taras@ukr.ua, adrian@gmail.com, JacobM3rcer@hotmail.com"
-								placeholder="Enter email ..."
-							/>
-							<ErrorMessage name="email" component="div" />
-						</Label>
-						<Label>
-							Password
-							<Input
-								type="password"
-								name="password"
-								title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters. For example TgeV23592, 3Greioct."
-								placeholder="Enter password ..."
-							/>
-							<ErrorMessage
-								name="password"
-								component="div"
-							/>
-						</Label>
-						<Button type="submit">Log In</Button>
-					</Forma>
-				)}
+				{formik => {
+					return (
+						<Forma autoComplete="off">
+							<Label>
+								Email
+								<Input
+									type="email"
+									name="email"
+									title="Email may contain letters, numbers, an apostrophe, and must be followed by '@' domain name '.' domain suffix. For example Taras@ukr.ua, adrian@gmail.com, JacobM3rcer@hotmail.com"
+									placeholder="Enter email ..."
+									className={`${
+										formik.touched.email &&
+										!formik.errors.email &&
+										"success"
+									}
+                                ${
+																	formik.touched.email &&
+																	formik.errors.email &&
+																	"error"
+																}`}
+								/>
+								{formik.touched.email && (
+									<WrapperEmail>
+										{formik.errors.email ? (
+											<ErrorMessage
+												name="email"
+												component="p"
+											/>
+										) : (
+											<p>Success!</p>
+										)}
+									</WrapperEmail>
+								)}
+							</Label>
+							<Label>
+								Password
+								<Input
+									type="password"
+									name="password"
+									title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters. For example TgeV23592, 3Greioct."
+									placeholder="Enter password ..."
+									className={`${
+										formik.touched.password &&
+										!formik.errors.password &&
+										"success"
+									}
+                                ${
+																	formik.touched.password &&
+																	formik.errors.password &&
+																	"error"
+																}`}
+								/>
+								{formik.touched.password && (
+									<WrapperPassword>
+										{formik.errors.password ? (
+											<ErrorMessage
+												name="password"
+												component="p"
+											/>
+										) : (
+											<p>Success!</p>
+										)}
+									</WrapperPassword>
+								)}
+							</Label>
+							<Button type="submit">Log In</Button>
+						</Forma>
+					);
+				}}
 			</Formik>
 		</>
 	);

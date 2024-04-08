@@ -10,6 +10,9 @@ export const Forma = styled(Form)`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	p {
+		font-size: 12px;
+	}
 `;
 
 export const Label = styled.label`
@@ -28,6 +31,22 @@ export const Input = styled(Field)`
 	border-bottom: 1px solid #42a5f5;
 
 	outline: none;
+	&.success {
+		border-bottom: 1px solid #3cbf61;
+	}
+	&.error {
+		border-bottom: 1px solid rgba(248, 5, 5, 0.973);
+	}
+`;
+
+export const WrapperEmail = styled.div`
+	position: absolute;
+	top: 128px;
+`;
+
+export const WrapperPassword = styled.div`
+	position: absolute;
+	top: 202px;
 `;
 
 export const Button = styled.button`

@@ -25,4 +25,7 @@ export const GameOver = styled.div`
 	color: #e74c3c;
 	font-size: 24px;
 	margin-top: 20px;
+	ul {
+		padding: 0;
+	}
 `;

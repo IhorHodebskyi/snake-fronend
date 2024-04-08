@@ -6,7 +6,6 @@ export const fetchResults = createAsyncThunk(
 	async (_, thunkAPI) => {
 		try {
 			const { data } = await axios.get("/score/get");
-
 			return data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
@@ -21,6 +20,7 @@ export const updateResult = createAsyncThunk(
 			const { data } = await axios.put("/score/update", {
 				score,
 			});
+			console.log(data);
 			return data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
