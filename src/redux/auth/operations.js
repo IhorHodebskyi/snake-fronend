@@ -2,7 +2,8 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Notify } from "notiflix";
 
-axios.defaults.baseURL = "http://localhost:3500";
+axios.defaults.baseURL =
+	"https://backend-snake-iky1.onrender.com";
 
 const setAuthHeader = token => {
 	axios.defaults.headers.common.Authorization = `Bearer ${token}`;

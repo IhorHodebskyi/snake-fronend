@@ -65,9 +65,7 @@ export const LoginForm = () => {
 												name="email"
 												component="p"
 											/>
-										) : (
-											<p>Success!</p>
-										)}
+										) : null}
 									</WrapperEmail>
 								)}
 							</Label>
@@ -96,9 +94,7 @@ export const LoginForm = () => {
 												name="password"
 												component="p"
 											/>
-										) : (
-											<p>Success!</p>
-										)}
+										) : null}
 									</WrapperPassword>
 								)}
 							</Label>

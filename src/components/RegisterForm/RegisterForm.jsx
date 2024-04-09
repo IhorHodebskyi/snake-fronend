@@ -68,9 +68,7 @@ export const RegisterForm = () => {
 												name="name"
 												component="p"
 											/>
-										) : (
-											<p>Success!</p>
-										)}
+										) : null}
 									</WrapperName>
 								)}
 							</Label>
@@ -99,9 +97,7 @@ export const RegisterForm = () => {
 												name="email"
 												component="p"
 											/>
-										) : (
-											<p>Success!</p>
-										)}
+										) : null}
 									</WrapperEmail>
 								)}
 							</Label>
@@ -130,9 +126,7 @@ export const RegisterForm = () => {
 												name="password"
 												component="p"
 											/>
-										) : (
-											<p>Success!</p>
-										)}
+										) : null}
 									</WrapperPassword>
 								)}
 							</Label>

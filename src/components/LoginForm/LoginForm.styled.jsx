@@ -17,7 +17,7 @@ export const Forma = styled(Form)`
 
 export const Label = styled.label`
 	display: block;
-	margin-bottom: 16px;
+	margin-bottom: 20px;
 	font-size: 14px;
 `;
 
@@ -46,7 +46,7 @@ export const WrapperEmail = styled.div`
 
 export const WrapperPassword = styled.div`
 	position: absolute;
-	top: 202px;
+	top: 206px;
 `;
 
 export const Button = styled.button`
