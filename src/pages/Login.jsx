@@ -7,8 +7,8 @@ const Login = () => {
 	return (
 		<>
 			<title>Login</title>
-			<LoginForm />
-			{isLoading && <Loader />}
+
+			{isLoading ? <Loader /> : <LoginForm />}
 		</>
 	);
 };

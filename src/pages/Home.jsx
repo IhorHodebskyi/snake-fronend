@@ -5,6 +5,10 @@ const Home = () => {
 		<>
 			<Wrapper>
 				<Title>Welcome to Game!</Title>{" "}
+				<Title>
+					To start playing, go through the registration
+					process or log in with your email and password.
+				</Title>{" "}
 			</Wrapper>
 		</>
 	);

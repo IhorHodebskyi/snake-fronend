@@ -7,8 +7,8 @@ const Register = () => {
 	return (
 		<>
 			<title>Registration</title>
-			<RegisterForm />
-			{isLoading && <Loader />}
+
+			{isLoading ? <Loader /> : <RegisterForm />}
 		</>
 	);
 };

@@ -10,7 +10,7 @@ import {
 
 import { updateResult } from "redux/game/operations";
 import { selectUser } from "redux/auth/selectors";
-import { selectGame } from "redux/game/selectors";
+import { selectRecord } from "redux/game/selectors";
 
 const GameState = () => {
 	const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const GameState = () => {
 	const [collisionType, setCollisionType] = useState(null);
 	const { high_score } = useSelector(selectUser);
 	const [count, setCount] = useState(high_score);
-	const items = useSelector(selectGame);
+	const items = useSelector(selectRecord);
 
 	const handleGameOver = type => {
 		setGameOver(true);
