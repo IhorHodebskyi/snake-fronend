@@ -4,17 +4,7 @@ export const Container = styled.div`
 	padding: 0 16px;
 	margin: auto;
 
-	@media (min-width: 480px) {
-		width: 480px;
-	}
-
-	@media (min-width: 768px) {
-		width: 768px;
-	}
-
-	@media (min-width: 1200px) {
-		width: 1200px;
-	}
+	width: 768px;
 `;
 
 export const Header = styled.header`
